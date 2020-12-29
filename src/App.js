@@ -1,24 +1,31 @@
 import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router,Route} from 'react-router-dom'
+import  './bootstrap/dist/css/bootstrap.min.css'
+import Navbar from './components/navbar.component'
+import Posts from './components/posts.component'
+import TagPage from './components/tagpage.component'
+import SinglePost from "./components/singlePost.component";
+import NewUser from "./components/newUser.component";
+import Post from "./components/post.component";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+      <Navbar/>
+      <br/>
+      <Route path="/" exact component={Posts}/>
+      <Route path="/tag" exact component={TagPage}/>
+      <Route path="/post/:pid" exact component={SinglePost}/>
+      <Route path="/new" exact component={Post}/>
+      <Route path="/user/new" exact component={NewUser}/>
+
+      </div>
+      {/* <Route path="/login" exact component={Login}/>
+      <Route path="/tag/posts" exact component={TagPosts}/>
+      <Route path="/post/new" exact component={NewPost}/>
+      <Route path="/user/new" exact component={NewUser }/>  */}
+    </Router>
   );
 }
 
