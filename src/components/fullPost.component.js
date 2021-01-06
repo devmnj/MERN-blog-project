@@ -25,7 +25,7 @@ class FullPost extends Component {
         console.log(error);
       });
 
-       const id =`http://localhost:3005/comment/${pid}`
+       const id =`${process.env.REACT_APP_API_SERVER}/comment/${pid}`
        console.log('id='+id);
      axios
        .get(id)
@@ -56,6 +56,7 @@ class FullPost extends Component {
                 <a href={`/tag/post/${element._id}`}> {element.tagName}</a>
               </span>
             ))}
+             <span className="badge p-1 badge-danger"><a href={`/post/delete/${this.state.post._id}`}>Delete</a></span>
           </div>
         </div>
         <Comment comments={this.state.comments} pid={this.state.post._id} />

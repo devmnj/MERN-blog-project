@@ -19,6 +19,7 @@ router.get('/post/:pid',Post.fullPost)
 router.post('/post/populate/:id',Post.userByPost)
 router.post('/post/comment/:id',Post.postComments)
 router.get('/post/tags/:id',Post.postTags)
+router.delete('/post/:pid',Post.delete)
 //comments routes
 router.post('/comment/create/:pid/:uid',Comment.create)
 router.get('/comment/:pid/',Comment.comments)

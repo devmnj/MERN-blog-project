@@ -45,7 +45,21 @@ module.exports = {
         return res.send(posts);
       });
   },
-
+  delete:(req,res)=>{
+    try {
+       const pid = req.params["pid"];
+       console.log('Delete->PID'+pid);
+       Post.findByIdAndDelete(pid,function (error,depost){
+        if(error) return handleError(error)
+        res.status(200).send(depost)
+        console.log('posts deleted');
+       })
+    } catch(e) {
+        res.status(400).send({error:e})
+      console.log(e);
+    }
+  }
+,
   fullPost: (req, res) => {
     console.log(req.params);
     const pid = req.params["pid"];

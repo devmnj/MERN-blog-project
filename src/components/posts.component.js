@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
- 
+
 const Post = (props) => (
   <div className="card m-2 p-2">
     <h3><a href={`/post/${props.post._id}`}>{props.post.title}</a></h3>
@@ -11,7 +11,7 @@ const Post = (props) => (
        <i className="badge badge-warning m-1"> <a href={`/tag/post/${tag._id}`}> {tag.tagName}</a></i>
       </span>     
     ))}
-    
+    <span className="badge p-1 badge-danger"><a href={`/post/delete/${props.post._id}`}>Delete</a></span>
     </div>
   </div>
 );
@@ -24,8 +24,9 @@ export default class Posts extends Component {
     };
   }
   componentDidMount() {
+    console.log('server'+(process.env.REACT_APP_API_SERVER));
     axios
-      .get("http://localhost:3005/post/find")
+      .get(`${process.env.REACT_APP_API_SERVER}/post/find`)
       .then((response) => {
 
         if (response.data.length > 0) {

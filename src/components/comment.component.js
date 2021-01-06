@@ -35,7 +35,7 @@ class Comment extends Component {
        console.log('pid='+this.props.pid);
       axios
         .post(
-          `http://localhost:3005/comment/create/${this.props.pid}/5fe4ab1e69b8d525c44ec293`,
+          `${process.env.REACT_APP_API_SERVER}/comment/create/${this.props.pid}/5fe4ab1e69b8d525c44ec293`,
           newComment
         )
         .then((res) => {

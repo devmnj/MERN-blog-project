@@ -26,7 +26,7 @@ class SinglePost extends Component {
     const { pid } = this.props.match.params;
     //   alert(pid)
     axios
-      .get("http://localhost:3005/post/" + String(pid))
+      .get(`${process.env.REACT_APP_API_SERVER}/post/${String(pid)}`)
       .then((response) => {
         //    console.log(response.data.length)
         if (response.data) {

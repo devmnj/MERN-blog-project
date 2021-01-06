@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
+require("dotenv").config();
 
 // middlewares
 app.use(cors());
@@ -15,5 +16,5 @@ mongoose.connect('mongodb://localhost:27017/codetalk',{
 
 // routes
 app.use(require('./app/routes'));
-app.listen(3005, () => console.log('server on!'));
+app.listen(process.env.PORT || 3000, () => console.log('server on!'));
 

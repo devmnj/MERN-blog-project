@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+
+
+function DeletePost() {
+  return <div>{alert("Post delete")}</div>;
+}
+
 class Post extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +44,7 @@ class Post extends Component {
     };
 
     axios
-      .post("http://localhost:3005/post/create/5fe4ab1e69b8d525c44ec293", post)
+      .post(`${process.env.REACT_APP_API_SERVER}/post/create/5fe4ab1e69b8d525c44ec293`, post)
       .then((res) => {
         if (res.data) {
           console.log(this.state.tags.length);
@@ -50,7 +56,7 @@ class Post extends Component {
               let tag = { tagName: element, user: "5fe4ab1e69b8d525c44ec293" };
               axios
                 .post(
-                  `http://localhost:3005/tag/create/${res.data._id}/5fe4ab1e69b8d525c44ec293`,
+                  `${process.env.REACT_APP_API_SERVER}/tag/create/${res.data._id}/5fe4ab1e69b8d525c44ec293`,
                   tag
                 )
                 .then((response) => {
@@ -159,4 +165,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export { Post, DeletePost };

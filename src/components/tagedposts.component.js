@@ -24,7 +24,7 @@ export default class TagPosts extends Component {
   componentDidMount() {
     const { tid } = this.props.match.params;
     axios
-      .get(`http://localhost:3005/tag/post/${tid}`)
+      .get(`${process.env.REACT_APP_API_SERVER}/tag/post/${tid}`)
       .then((response) => {
 
         // if (response.data.length > 0) {
