@@ -9,7 +9,7 @@ const PostTitles= props=>(
 )
 const Tag = (props) => (
   <div>
-    <h6 >{props.tag.tagName} <span class="badge">{props.tag.posts.length}</span></h6>
+    <h6 className="badge badge-info" >{props.tag.tagName} <span class="badge badge-light">{props.tag.posts.length}</span></h6>
     <div>{props.tag.posts.map((post,index)=><span key={index.toString()}> <PostTitles post= {post}/> </span>)}</div>
   </div>
 );

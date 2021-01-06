@@ -13,15 +13,13 @@ export default class Navbar extends Component {
             </li>
             <li className="navbar-item">
               <Link to="/tag" className="nav-link">Tag Page</Link>
-            </li>
-            <li className="navbar-item">
-              <Link to="post/answered" className="nav-link">Answered Post</Link>
-            </li>
+            </li>           
             <li className="navbar-item">
               <Link to="/new" className="nav-link">New Post</Link>
             </li>
+           
             <li className="navbar-item">
-              <Link to="/user/new" className="nav-link">New User</Link>
+              <Link to="/" className="nav-link">About</Link>
             </li>
           </ul>
         </div>
